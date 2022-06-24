@@ -14,7 +14,7 @@ namespace DungeonLibrary
         private int _maxDamage;
         private string _name;
         private int _bonusHitChance;
-        private bool _isTwoHanded;
+        private bool _isGalaxyClass;
         private ShipType _type;
 
 
@@ -39,10 +39,10 @@ namespace DungeonLibrary
             get { return _bonusHitChance; }
             set { _bonusHitChance = value; }
         }//end BonusHitChance
-        public bool IsTwoHanded
+        public bool IsGalaxyClass
         {
-            get { return _isTwoHanded; }
-            set { _isTwoHanded = value; }
+            get { return _isGalaxyClass; }
+            set { _isGalaxyClass = value; }
         }//end IsTwoHanded
         public ShipType Type
         {
@@ -52,7 +52,7 @@ namespace DungeonLibrary
 
 
         //Constructors
-        public Ship(int minDamage, int maxDamage, string name, int bonusHitChance, bool isTwoHanded, ShipType type)
+        public Ship(int minDamage, int maxDamage, string name, int bonusHitChance, bool isGalaxyClass, ShipType type)
         {
             //handle MaxDamage assignment FIRST, since MinDamage uses it in the setter.
             //If you have ANY properties that have business rules
@@ -62,7 +62,7 @@ namespace DungeonLibrary
             MinDamage = minDamage;
             Name = name;
             BonusHitChance = bonusHitChance;
-            IsTwoHanded = isTwoHanded;
+            IsGalaxyClass = isGalaxyClass;
             Type = type;
         }//end FQ CTOR
 
@@ -71,7 +71,7 @@ namespace DungeonLibrary
         {
             return $"{Name}\t{MinDamage} to {MaxDamage} Damage\n" +
                 $"Bonus Hit: {BonusHitChance}%\n" +
-                $"Type: {Type}\t\t{(IsTwoHanded ? "Two-Handed" : "One-Handed")}";
+                $"Type: {Type}\t\t{(IsGalaxyClass ? "Galaxy Class" : "Star Ship")}";
         }//end ToString() override
     }//end class
 }//end namespace

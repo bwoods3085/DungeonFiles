@@ -3,11 +3,11 @@
     public class Character
     {
         //Fields
-        private int _life;
         private int _maxLife;
+        private int _life;  
         private string _name;
         private int _hitChance;
-        private int _block;
+        private int _shield;
 
         //Properties
 
@@ -43,32 +43,32 @@
             get { return _hitChance; }
             set { _hitChance = value; }
         }
-        public int Block
+        public int Shield   
         {
-            get { return _block; }
-            set { _block = value; }
+            get { return _shield; }
+            set { _shield = value; }
         }
 
         //Ctors
-        public Character(int life, int maxLife, string name, int hitChance, int block)
+        public Character(int life, int maxLife, string name, int hitChance, int shield)
         {
             Life = life;
             MaxLife = maxLife;
             Name = name;
             HitChance = hitChance;
-            Block = block;
+            Shield = shield;
         }
         public override string ToString()
         {
             return string.Format("<======<({0})>======>\n" +
                 "Life: {1} of {2}\nHit Chance: {3}%\n" +
-                "Block: {4}", Name, Life, MaxLife, HitChance, Block);
+                "Shield: {4}", Name, Life, MaxLife, HitChance, Shield);
 
         }
 
-        public virtual int CalcBlock()
+        public virtual int CalcShield()
         {
-            return Block;
+            return Shield;
         }
         public virtual int CalcHitChance()
         {

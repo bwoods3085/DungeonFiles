@@ -40,7 +40,7 @@ namespace DungeonLibrary
 
         //}
         public Enemy(string name, int life, int maxLife, int hitChance,
-            int block, int maxDamage, int minDamage, string description) : base(life, maxLife, name, hitChance, block)
+            int shield, int maxDamage, int minDamage, string description) : base(life, maxLife, name, hitChance, shield)
         {
             //Set MaxLife and MaxDamage first! because other properties
             //depend on them
@@ -58,7 +58,8 @@ namespace DungeonLibrary
         //methods
         public override string ToString()
         {
-            return $"\n********MONSTER********\n{Name}\nLife: {Life} of {MaxLife}\nDamage: {MinDamage} to {MaxDamage}\nBlock: {Block}\nDescription:\n{Description}\n";
+            return $"\n********Enemy********\n{Name}\nLife: {Life} of {MaxLife}\nDamage: {MinDamage} to {MaxDamage}" +
+                $"\nShield: {Shield}\nDescription:\n{Description}\n";
 
             //example using a verbatim string
             //            return $@"
@@ -84,13 +85,13 @@ namespace DungeonLibrary
         //Add after adding the monster types. Come back as necessary as you add new monster types to add them into the collection.
         public static Enemy GetEnemy()
         {
-            Rabbit r = new("White Rabbit", 25, 25, 50, 20, 2, 8, "That's no ordinary rabbit! Look at the bones!", true);
-            Vampire v = new("Dracula", 30, 30, 70, 8, 1, 8, "The father of all the undead");
-            Turtle t = new("Mikey", 25, 25, 50, 10, 1, 4, "He is no longer a teenager but he is still a mutant turtle", 3, 10);
-            Dragon d = new("Smaug", 20, 20, 65, 20, 1, 15, "The last great dragon.", true);
-            //Rabbit babyRabbit = new Rabbit();
+            Borg b = new("Locutus's Cube", 100, 100, 70, 70, 2, 10, "Borg Cube", false);
+            Klingon k = new("IKS B'rel", 50, 50, 70, 8, 1, 9, "B'rel class Bird-of-Prey Scoutship",true);
+            Romulan r = new("IRW Albius", 50, 50, 50, 10, 1, 9, "D'deridex-class Warbird",false);
+            Cardassian c = new("CDS Avenger", 20, 20, 65, 20, 1, 15, "Galor Class Battleship", false);
+            Ferengi f = new("FMS Mroxor",20,20,40,40,1,4,"D'Kora Class Marauder",true);
 
-            List<Enemy> enemies = new() { r, t, v, d, r, r,  };
+            List<Enemy> enemies = new() { c,f,k,r,f,b,f,r,c, k,c, k,  };
 
             return enemies[new Random().Next(enemies.Count)];
 
