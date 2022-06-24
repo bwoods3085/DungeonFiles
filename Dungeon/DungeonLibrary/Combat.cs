@@ -14,7 +14,7 @@ namespace DungeonLibrary
             //random value between 1 - 100
             Thread.Sleep(30);
 
-            if (diceRoll <= (attacker.CalcHitChance() - defender.CalcBlock()))
+            if (diceRoll <= (attacker.CalcHitChance() - defender.CalcShield()))
             {
                 //attack hits calculate damage below
                 int damageDealt = attacker.CalcDamage();
@@ -40,6 +40,10 @@ namespace DungeonLibrary
             {
                 DoAttack(enemy, player);
             }//end if
+            if (enemy.Life <= 0)
+            {
+                player.Life += 5;
+            }
 
         }//end DoBattle()
 

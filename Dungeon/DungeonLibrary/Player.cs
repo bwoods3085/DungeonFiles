@@ -11,8 +11,8 @@ namespace DungeonLibrary
         public Commanders CharacterCommander { get; set; }
         public Ship EquippedShip { get; set; }//CONTAINMENT
 
-        public Player(string name, int hitChance, int block, int maxLife, int life, Commanders characterRace, Ship equippedShip)
-            : base(life, maxLife, name, hitChance, block)
+        public Player(string name, int hitChance, int shield, int maxLife, int life, Commanders characterRace, Ship equippedShip)
+            : base(life, maxLife, name, hitChance, shield)
         {
             CharacterCommander = characterRace;
             EquippedShip = equippedShip;
@@ -20,13 +20,18 @@ namespace DungeonLibrary
             switch (CharacterCommander)
             {
                 case Commanders.CaptainKirk:
+                    Shield += 1;
+                    HitChance += 2;
                     break;
                 case Commanders.CaptainPicard:
+                    Shield += 4;
                     break;
                 case Commanders.CaptainJaneway:
-                    HitChance += 5;
+                    HitChance += 3;
                     break;
                 case Commanders.CommanderSisco:
+                    HitChance += 1;
+                    Shield += 2;
                     break;
                 default:
                     break;
@@ -52,7 +57,7 @@ namespace DungeonLibrary
                     break;
             }//end switch
 
-            return base.ToString() + $"\nWeapon: {EquippedShip.Name}\n" +
+            return base.ToString() + $"\nShip: {EquippedShip.Name}\n" +
                                      $"Total Hit Chance: {CalcHitChance()}\n" +
                                      $"Description: {description}";
         }//end ToString();
