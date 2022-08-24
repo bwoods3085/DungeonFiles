@@ -52,8 +52,8 @@
         //Ctors
         public Character(int life, int maxLife, string name, int hitChance, int shield)
         {
-            Life = life;
             MaxLife = maxLife;
+            Life = life;
             Name = name;
             HitChance = hitChance;
             Shield = shield;
